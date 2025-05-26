@@ -9,6 +9,7 @@ const errorMessages = document.querySelectorAll(".error-message")
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
+    resetErros()
     validateInputs();
 });
 
@@ -19,6 +20,23 @@ function setError(input, errorMessage){
     errorMessageElement.textContent = errorMessage
     //deixar a caixa vermelha 
     input.parentElement.classList.add("error")
+}
+// quando o formulario for enviado será limpado os erros
+function resetErros(){
+    errorMessages.forEach((msg) => {
+        msg.textContent=""
+    })
+    nome.parentElement.classList.remove("error")
+    email.parentElement.classList.remove("error")
+    assunto.parentElement.classList.remove("error")
+    mensagem.parentElement.classList.remove("error")
+
+// remover a cor vermelha da borda 
+
+    nome.parentElement.classList.remove("error")
+    email.parentElement.classList.remove("error")
+    assunto.parentElement.classList.remove("error")
+    mensagem.parentElement.classList.remove("error")
 }
 
 // validação dos campos 
